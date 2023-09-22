@@ -67,16 +67,17 @@
       const date = new Date()
       const getDay = () => date.getUTCDate()
 
-      const getBCNHour = () => {
-        if (getHour() < 22) {
-          return getHour() + 2
-        }
-        if (getHour() === 22) {
-          return 0
-        }
-        if (getHour() > 22) {
-          return 24 - getHour()
-        }
+      const getSeoulHour = () => {
+        // Get the current date and time in UTC
+        const now = new Date();
+
+        // Adjust the time to Seoul (KST) timezone (UTC+9)
+        const seoulTime = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+
+        // Get the hour part of the Seoul time
+        const seoulHour = seoulTime.getUTCHours();
+
+        return seoulHour;
       }
 
       const getSFHour = () => {
@@ -125,13 +126,13 @@
 
       const updateTime = () => {
         counterHour[0].innerHTML = getHourWithType(getSFHour()).hour
-        counterHour[1].innerHTML = getHourWithType(getBCNHour()).hour
+        counterHour[1].innerHTML = getHourWithType(getSeoulHour()).hour
 
         counterMinutes[0].innerHTML = getMinutes()
         counterMinutes[1].innerHTML = getMinutes()
 
         counterType[0].innerHTML = getHourWithType(getSFHour()).type
-        counterType[1].innerHTML = getHourWithType(getBCNHour()).type
+        counterType[1].innerHTML = getHourWithType(getSeoulHour()).type
 
         timelineTrack.setAttribute("style", `transform: translateX(-${Math.floor(leftProportion()*48)}px);`)
       }

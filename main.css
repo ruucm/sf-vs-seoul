@@ -42,7 +42,7 @@ body {
 }
 
 .mainContainer {
-	overflow: hidden;
+	overflow-y: hidden;
 	height: 100%;
 }
 
@@ -78,7 +78,7 @@ body {
 }
 
 .clockWrapper {
-	width: calc(var(--hourWidth) * 9);
+	width: calc(var(--hourWidth) * 16);
 	flex-shrink: 0;
 }
 
