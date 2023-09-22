@@ -1,3 +1,3 @@
-# SF vs BCN clock
+# SF vs SEOUl clock
 
-![](https://raw.githubusercontent.com/hihayk/sf-vs-bcn/master/shot.png)
+![](https://raw.githubusercontent.com/ruucm/sf-vs-seoul/master/shot.png)
