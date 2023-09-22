@@ -216,16 +216,19 @@
         if (i <= 3) {
           hourStyles.push(`
             .timelineBox-${i}.timelineBox-am:hover .timelineBoxNumber,
-            .timelineBox-${i}.timelineBox-am:hover ~ .timelineBox-${i + 9}.timelineBox-am .timelineBoxNumber {
+            .timelineBox-${i}.timelineBox-am:hover ~ .timelineBox-${i+16-12}.timelineBox-pm .timelineBoxNumber {
               background-color: #eee;
               opacity: 1;
             }
           `)
         }
         if (i > 3) {
+          const key = (i+16)-12
+          const value = key > 12 ? key - 12 : key
+          const middayValue = key > 12 ? 'am' : 'pm'
           hourStyles.push(`
             .timelineBox-${i}.timelineBox-am:hover .timelineBoxNumber,
-            .timelineBox-${i}.timelineBox-am:hover ~ .timelineBox-${i+9-12}.timelineBox-pm .timelineBoxNumber {
+            .timelineBox-${i}.timelineBox-am:hover ~ .timelineBox-${value}.timelineBox-${middayValue} .timelineBoxNumber {
               background-color: #eee;
               opacity: 1;
             }
@@ -234,16 +237,19 @@
         if (i <= 3) {
           hourStyles.push(`
             .timelineBox-${i}.timelineBox-pm:hover .timelineBoxNumber,
-            .timelineBox-${i}.timelineBox-pm:hover ~ .timelineBox-${i + 9}.timelineBox-pm .timelineBoxNumber {
+            .timelineBox-${i}.timelineBox-pm:hover ~ .timelineBox-${(i+16)-12}.timelineBox-am .timelineBoxNumber {
               background-color: #eee;
               opacity: 1;
             }
           `)
         }
         if (i > 3) {
+          const key = (i+16)-12
+          const value = key > 12 ? key - 12 : key
+          const middayValue = key > 12 ? 'pm' : 'am'
           hourStyles.push(`
             .timelineBox-${i}.timelineBox-pm:hover .timelineBoxNumber,
-            .timelineBox-${i}.timelineBox-pm:hover ~ .timelineBox-${i+9-12}.timelineBox-am .timelineBoxNumber {
+            .timelineBox-${i}.timelineBox-pm:hover ~ .timelineBox-${value}.timelineBox-${middayValue} .timelineBoxNumber {
               background-color: #eee;
               opacity: 1;
             }
